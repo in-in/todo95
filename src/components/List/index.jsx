@@ -7,7 +7,7 @@ const List = () => (
 			<ListItem label="item1" />
 		</li>
 		<li>
-			<ListItem label="item2" />
+			<ListItem label="item2" important />
 		</li>
 	</ul>
 );
