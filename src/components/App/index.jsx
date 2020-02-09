@@ -1,6 +1,12 @@
 import React from 'react';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { reset, themes } from 'react95';
 import Header from '../Header';
-import List from '../List';
+import Foo from '../List';
+
+const ResetStyles = createGlobalStyle`
+  ${reset}
+`;
 
 const App = () => {
 	const data = [
@@ -23,8 +29,11 @@ const App = () => {
 
 	return (
 		<>
-			<Header />
-			<List todos={data} />
+			<ResetStyles />
+			<ThemeProvider theme={themes.default}>
+				<Header />
+				<Foo todos={data} />
+			</ThemeProvider>
 		</>
 	);
 };

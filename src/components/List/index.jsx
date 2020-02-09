@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { List as List95, ListItem as ListItem95 } from 'react95';
 import ListItem from '../ListItem';
 
 const List = ({ todos }) => {
@@ -7,14 +8,14 @@ const List = ({ todos }) => {
 		const { id, label, important } = el;
 
 		return (
-			<li key={id}>
+			<ListItem95 key={id}>
 				<ListItem label={label} important={important} />
-			</li>
+			</ListItem95>
 		);
 	});
 
 	return (
-		<ul>{elements}</ul>
+		<List95 square>{elements}</List95>
 	);
 };
 
