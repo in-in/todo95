@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from 'react95';
 
 const ListItem = ({ label, important }) => {
 	const style = {
@@ -7,7 +8,11 @@ const ListItem = ({ label, important }) => {
 	};
 
 	return (
-		<span style={style}>{label}</span>
+		<div>
+			<span style={style}>{label}</span>
+			<Button square><span role="img" aria-label="Trash Can">🗑️</span></Button>
+			<Button square><span role="img" aria-label="Exclamation Mark">❗</span></Button>
+		</div>
 	);
 };
 

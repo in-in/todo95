@@ -15,7 +15,7 @@ const List = ({ todos }) => {
 	});
 
 	return (
-		<List95 square>{elements}</List95>
+		<List95 fullWidth square>{elements}</List95>
 	);
 };
 
