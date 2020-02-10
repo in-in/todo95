@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { reset, themes, Window } from 'react95';
 import Header from '../Header';
+import Filter from '../Filter';
 import List from '../List';
 import Stats from '../Stats';
 
@@ -38,6 +39,7 @@ const App = () => {
 			<ThemeProvider theme={themes.default}>
 				<StyledWindow>
 					<Header />
+					<Filter />
 					<Stats />
 					<List todos={data} />
 				</StyledWindow>
