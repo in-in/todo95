@@ -18,7 +18,7 @@ const App = () => {
 	const data = [
 		{
 			'id': '1',
-			'label': 'item1',
+			'label': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime necessitatibus corporis labore dolorem consequatur eum libero tempora est? Amet odit officiis minus, provident ad aliquam minima eveniet tenetur aut a.',
 			'important': false,
 		},
 		{
