@@ -36,7 +36,7 @@ class ListItem extends Component {
 	};
 
 	render() {
-		const { label } = this.props;
+		const { label, onDeleted } = this.props;
 		const { done, important } = this.state;
 
 		return (
@@ -48,7 +48,9 @@ class ListItem extends Component {
 				>{label}
 				</Text>
 				<div>
-					<Button square><span role="img" aria-label="Trash Can">🗑️</span></Button>
+					<Button square onClick={onDeleted}>
+						<span role="img" aria-label="Trash Can">🗑️</span>
+					</Button>
 					<Button square onClick={this.onMarkImportant}>
 						<span role="img" aria-label="Exclamation Mark">❗</span>
 					</Button>
@@ -60,6 +62,7 @@ class ListItem extends Component {
 
 ListItem.propTypes = {
 	'label': PropTypes.string.isRequired,
+	'onDeleted': PropTypes.func.isRequired,
 };
 
 export default ListItem;
