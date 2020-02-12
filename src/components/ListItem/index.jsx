@@ -1,5 +1,5 @@
 /* eslint-disable react/prefer-stateless-function */
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'react95';
 import styled from 'styled-components';
@@ -18,51 +18,43 @@ const Text = styled.span`
 	font-weight: ${(props) => (props.important ? '700' : '400')};
 `;
 
-class ListItem extends Component {
-	constructor() {
-		super();
-		this.state = {
-			'done': false,
-			'important': false,
-		};
-	}
+const ListItem = (props) => {
+	const {
+		done,
+		important,
+		label,
+		onDeleted,
+		onToggleDone,
+		onToggleImportant,
+	} = props;
 
-	onLabelClick = () => {
-		this.setState(({ done }) => ({ 'done': !done }));
-	};
-
-	onMarkImportant = () => {
-		this.setState(({ important }) => ({ 'important': !important }));
-	};
-
-	render() {
-		const { label, onDeleted } = this.props;
-		const { done, important } = this.state;
-
-		return (
-			<StyledListItem>
-				<Text
-					done={done}
-					important={important}
-					onClick={this.onLabelClick}
-				>{label}
-				</Text>
-				<div>
-					<Button square onClick={onDeleted}>
-						<span role="img" aria-label="Trash Can">🗑️</span>
-					</Button>
-					<Button square onClick={this.onMarkImportant}>
-						<span role="img" aria-label="Exclamation Mark">❗</span>
-					</Button>
-				</div>
-			</StyledListItem>
-		);
-	}
-}
+	return (
+		<StyledListItem>
+			<Text
+				done={done}
+				important={important}
+				onClick={onToggleDone}
+			>{label}
+			</Text>
+			<div>
+				<Button square onClick={onDeleted}>
+					<span role="img" aria-label="Trash Can">🗑️</span>
+				</Button>
+				<Button square onClick={onToggleImportant}>
+					<span role="img" aria-label="Exclamation Mark">❗</span>
+				</Button>
+			</div>
+		</StyledListItem>
+	);
+};
 
 ListItem.propTypes = {
+	'done': PropTypes.bool.isRequired,
+	'important': PropTypes.bool.isRequired,
 	'label': PropTypes.string.isRequired,
 	'onDeleted': PropTypes.func.isRequired,
+	'onToggleDone': PropTypes.func.isRequired,
+	'onToggleImportant': PropTypes.func.isRequired,
 };
 
 export default ListItem;

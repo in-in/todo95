@@ -17,25 +17,34 @@ const StyledWindow = styled(Window)`
 `;
 
 class App extends Component {
+	static createItem(text) {
+		return {
+			'done': false,
+			'id': nanoid(),
+			'important': false,
+			'label': text,
+		};
+	}
+
+	static toggleProperty(arr, id, propName) {
+		const idx = arr.findIndex((el) => el.id === id);
+		const oldItem = arr[idx];
+		const newItem = { ...oldItem, [propName]: !oldItem[propName] };
+		return [
+			...arr.slice(0, idx),
+			newItem,
+			...arr.slice(idx + 1),
+		];
+	}
+
 	constructor() {
 		super();
 		this.state = {
 			'data': [
-				{
-					'id': '1',
-					'label': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime necessitatibus corporis labore dolorem consequatur eum libero tempora est? Amet odit officiis minus, provident ad aliquam minima eveniet tenetur aut a.',
-					'important': false,
-				},
-				{
-					'id': '2',
-					'label': 'item2',
-					'important': true,
-				},
-				{
-					'id': '3',
-					'label': 'item3',
-					'important': false,
-				},
+				App.createItem('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime necessitatibus corporis labore dolorem consequatur eum libero tempora est? Amet odit officiis minus, provident ad aliquam minima eveniet tenetur aut a.'),
+				App.createItem('item2'),
+				App.createItem('item3'),
+				App.createItem('item4'),
 			],
 		};
 	}
@@ -52,18 +61,27 @@ class App extends Component {
 	}
 
 	addItem = (text) => {
-		const item = {
-			'id': nanoid(),
-			'label': text,
-		};
-
 		this.setState(({ data }) => ({
-			'data': [...data, item],
+			'data': [...data, App.createItem(text)],
+		}));
+	}
+
+	onToggleImportant = (id) => {
+		this.setState(({ data }) => ({
+			'data': App.toggleProperty(data, id, 'important'),
+		}));
+	}
+
+	onToggleDone = (id) => {
+		this.setState(({ data }) => ({
+			'data': App.toggleProperty(data, id, 'done'),
 		}));
 	}
 
 	render() {
 		const { data } = this.state;
+		const doneCount = data.filter((el) => el.done).length;
+		const todoCount = data.length - doneCount;
 
 		return (
 			<>
@@ -72,11 +90,13 @@ class App extends Component {
 					<StyledWindow>
 						<Header />
 						<Filter />
-						<Stats />
+						<Stats todo={todoCount} done={doneCount} />
 						<AddForm onAdded={this.addItem} />
 						<List
 							todos={data}
 							onDeleted={this.deleteItem}
+							onToggleImportant={this.onToggleImportant}
+							onToggleDone={this.onToggleDone}
 						/>
 					</StyledWindow>
 				</ThemeProvider>
