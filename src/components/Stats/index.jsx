@@ -3,26 +3,30 @@ import PropTypes from 'prop-types';
 import {
 	Table, TableHead, TableRow, TableHeadCell, TableBody, TableDataCell,
 } from 'react95';
+import styled from 'styled-components';
+
+const StyledTableDataCell = styled(TableDataCell)`
+	text-align: center
+`;
 
 const Stats = ({ todo, done }) => (
 	<Table>
 		<TableHead>
 			<TableRow>
 				<TableHeadCell>Type</TableHeadCell>
-				<TableHeadCell>State</TableHeadCell>
-				<TableHeadCell>Count</TableHeadCell>
+				<TableHeadCell>Amount</TableHeadCell>
 			</TableRow>
 		</TableHead>
 		<TableBody>
 			<TableRow>
-				<TableDataCell><span role="img" aria-label="Inbox">📥</span></TableDataCell>
-				<TableDataCell>Todo</TableDataCell>
-				<TableDataCell>{todo}</TableDataCell>
+				<StyledTableDataCell>
+					<span role="img" aria-label="Inbox">📥</span> Active
+				</StyledTableDataCell>
+				<StyledTableDataCell>{todo}</StyledTableDataCell>
 			</TableRow>
 			<TableRow>
-				<TableDataCell><span role="img" aria-label="celebration">🎉</span></TableDataCell>
-				<TableDataCell>Done</TableDataCell>
-				<TableDataCell>{done}</TableDataCell>
+				<StyledTableDataCell><span role="img" aria-label="celebration">🎉</span> Done</StyledTableDataCell>
+				<StyledTableDataCell>{done}</StyledTableDataCell>
 			</TableRow>
 		</TableBody>
 	</Table>
