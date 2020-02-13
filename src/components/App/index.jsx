@@ -14,11 +14,18 @@ import List from '../List';
 import Search from '../Search';
 
 const ResetStyles = createGlobalStyle`
-  ${reset}
+	${reset}
+	body {
+		background-color: teal
+	}
 `;
 
 const StyledWindow = styled(Window)`
-	width: 100%
+	display: block;
+	width: 100%;
+	max-width: 425px;
+	margin-left: auto;
+	margin-right: auto;
 `;
 
 class App extends Component {
@@ -131,13 +138,13 @@ class App extends Component {
 							<Search onTermChange={this.onTermChange} />
 							<Filter onFilterChange={this.onFilterChange} filter={filter} />
 							<Stats todo={todoCount} done={doneCount} />
-							<AddForm onAdded={this.addItem} />
 							<List
 								todos={visibleItems}
 								onDeleted={this.deleteItem}
 								onToggleImportant={this.onToggleImportant}
 								onToggleDone={this.onToggleDone}
 							/>
+							<AddForm onAdded={this.addItem} />
 						</StyledWindow>
 					</ThemeProvider>
 				</>
