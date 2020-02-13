@@ -36,9 +36,10 @@ class AddForm extends Component {
 						onChange={this.onLabelChange}
 						placeholder="Add task"
 						value={label}
+						required
 					/>
 					<Button fullWidth type="submit">
-						<span role="img" aria-label="Exclamation Mark">❗</span>
+						<span role="img" aria-label="Plus">➕</span>
 					</Button>
 				</Fieldset>
 			</form>
