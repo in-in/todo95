@@ -7,6 +7,7 @@ import Filter from '../Filter';
 import Stats from '../Stats';
 import AddForm from '../AddForm';
 import List from '../List';
+import Search from '../Search';
 
 const ResetStyles = createGlobalStyle`
   ${reset}
@@ -37,6 +38,27 @@ class App extends Component {
 		];
 	}
 
+	static search(items, term) {
+		if (term.length === 0) {
+			return items;
+		}
+
+		return items.filter((i) => i.label
+			.toLowerCase().indexOf(term.toLowerCase()) > -1);
+	}
+
+	static filter(items, status) {
+		switch (status) {
+			case 'active':
+				return items.filter((i) => !i.done);
+			case 'done':
+				return items.filter((i) => i.done);
+			case 'all':
+			default:
+				return items;
+		}
+	}
+
 	constructor() {
 		super();
 		this.state = {
@@ -45,7 +67,10 @@ class App extends Component {
 				App.createItem('item2'),
 				App.createItem('item3'),
 				App.createItem('item4'),
+				App.createItem('Moo'),
 			],
+			'term': '',
+			'filter': 'all',
 		};
 	}
 
@@ -78,10 +103,19 @@ class App extends Component {
 		}));
 	}
 
+	onTermChange = (term) => {
+		this.setState({ term });
+	}
+
+	onFilterChange = (filter) => {
+		this.setState({ filter });
+	}
+
 	render() {
-		const { data } = this.state;
+		const { data, term, filter } = this.state;
 		const doneCount = data.filter((el) => el.done).length;
 		const todoCount = data.length - doneCount;
+		const visibleItems = App.filter(App.search(data, term), filter);
 
 		return (
 			<>
@@ -89,11 +123,12 @@ class App extends Component {
 				<ThemeProvider theme={themes.default}>
 					<StyledWindow>
 						<Header />
-						<Filter />
+						<Search onTermChange={this.onTermChange} />
+						<Filter onFilterChange={this.onFilterChange} filter={filter} />
 						<Stats todo={todoCount} done={doneCount} />
 						<AddForm onAdded={this.addItem} />
 						<List
-							todos={data}
+							todos={visibleItems}
 							onDeleted={this.deleteItem}
 							onToggleImportant={this.onToggleImportant}
 							onToggleDone={this.onToggleDone}
