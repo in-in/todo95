@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, {
+	createGlobalStyle,
+	ThemeProvider,
+	StyleSheetManager,
+} from 'styled-components';
 import { reset, themes, Window } from 'react95';
 import nanoid from 'nanoid';
 import Header from '../Header';
@@ -118,24 +122,26 @@ class App extends Component {
 		const visibleItems = App.filter(App.search(data, term), filter);
 
 		return (
-			<>
-				<ResetStyles />
-				<ThemeProvider theme={themes.default}>
-					<StyledWindow>
-						<Header />
-						<Search onTermChange={this.onTermChange} />
-						<Filter onFilterChange={this.onFilterChange} filter={filter} />
-						<Stats todo={todoCount} done={doneCount} />
-						<AddForm onAdded={this.addItem} />
-						<List
-							todos={visibleItems}
-							onDeleted={this.deleteItem}
-							onToggleImportant={this.onToggleImportant}
-							onToggleDone={this.onToggleDone}
-						/>
-					</StyledWindow>
-				</ThemeProvider>
-			</>
+			<StyleSheetManager disableVendorPrefixes>
+				<>
+					<ResetStyles />
+					<ThemeProvider theme={themes.default}>
+						<StyledWindow>
+							<Header />
+							<Search onTermChange={this.onTermChange} />
+							<Filter onFilterChange={this.onFilterChange} filter={filter} />
+							<Stats todo={todoCount} done={doneCount} />
+							<AddForm onAdded={this.addItem} />
+							<List
+								todos={visibleItems}
+								onDeleted={this.deleteItem}
+								onToggleImportant={this.onToggleImportant}
+								onToggleDone={this.onToggleDone}
+							/>
+						</StyledWindow>
+					</ThemeProvider>
+				</>
+			</StyleSheetManager>
 		);
 	}
 }
