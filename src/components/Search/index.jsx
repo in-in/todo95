@@ -1,4 +1,3 @@
-/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from 'react';
 import { TextField, Fieldset } from 'react95';
 import PropTypes from 'prop-types';
