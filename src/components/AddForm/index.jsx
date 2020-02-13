@@ -2,6 +2,11 @@
 import React, { Component } from 'react';
 import { TextField, Button, Fieldset } from 'react95';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const StyledButton = styled(Button)`
+	margin-top: .5em;
+`;
 
 class AddForm extends Component {
 	constructor() {
@@ -38,9 +43,9 @@ class AddForm extends Component {
 						value={label}
 						required
 					/>
-					<Button fullWidth type="submit">
+					<StyledButton fullWidth type="submit">
 						<span role="img" aria-label="Plus">➕</span>
-					</Button>
+					</StyledButton>
 				</Fieldset>
 			</form>
 		);
