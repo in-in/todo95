@@ -9,7 +9,7 @@ const StyledHeader = styled(WindowHeader)`
 
 const Header = () => (
 	<StyledHeader>
-		<h1>ToDo</h1>
+		<h1>ToDo95</h1>
 		<span role="img" aria-label="Note">📝</span>
 	</StyledHeader>
 );

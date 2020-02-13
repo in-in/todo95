@@ -1,7 +1,5 @@
 {
-	"name": "todo",
-	"version": "0.1.0",
-	"private": true,
+	"name": "ToDo95",
 	"scripts": {
 		"build": "react-scripts build",
 		"eject": "react-scripts eject",
