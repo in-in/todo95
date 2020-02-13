@@ -11,11 +11,17 @@ const StyledListItem = styled.div`
 
 const Text = styled.span`
 	max-width: calc(100% - 80px);
+	width: 100%;
 	overflow: hidden;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	text-decoration: ${(props) => (props.done ? 'line-through' : 'none')};
 	font-weight: ${(props) => (props.important ? '700' : '400')};
+	cursor: pointer;
+`;
+
+const StyledButton = styled(Button)`
+	margin-left: .5em;
 `;
 
 const ListItem = (props) => {
@@ -40,9 +46,9 @@ const ListItem = (props) => {
 				<Button square onClick={onDeleted}>
 					<span role="img" aria-label="Trash Can">🗑️</span>
 				</Button>
-				<Button square onClick={onToggleImportant}>
+				<StyledButton square onClick={onToggleImportant}>
 					<span role="img" aria-label="Exclamation Mark">❗</span>
-				</Button>
+				</StyledButton>
 			</div>
 		</StyledListItem>
 	);
