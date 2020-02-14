@@ -26,6 +26,7 @@ class Search extends Component {
 					onChange={this.onTermChange}
 					placeholder="Search"
 					required
+					type="search"
 					value={term}
 				/>
 			</Fieldset>
