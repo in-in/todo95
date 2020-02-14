@@ -23,6 +23,10 @@ const StyledButton = styled(Button)`
 	margin-left: .5em;
 `;
 
+const ButtonGroup = styled.div`
+	margin-left: .5em;
+`;
+
 const ListItem = (props) => {
 	const {
 		done,
@@ -41,14 +45,14 @@ const ListItem = (props) => {
 				onClick={onToggleDone}
 			>{label}
 			</Text>
-			<div>
+			<ButtonGroup>
 				<Button square onClick={onDeleted}>
 					<span role="img" aria-label="Trash Can">🗑️</span>
 				</Button>
 				<StyledButton square onClick={onToggleImportant}>
 					<span role="img" aria-label="Exclamation Mark">❗</span>
 				</StyledButton>
-			</div>
+			</ButtonGroup>
 		</StyledListItem>
 	);
 };
