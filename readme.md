@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="/"><img src="https://user-images.githubusercontent.com/8797432/74528260-e0699480-4f38-11ea-874e-ce2924a52b2b.png" alt="ToDo95" title="ToDo95" width="100" height="100"></a>
+  <a href="https://todo95.now.sh/"><img src="https://user-images.githubusercontent.com/8797432/74528260-e0699480-4f38-11ea-874e-ce2924a52b2b.png" alt="ToDo95" title="ToDo95" width="100" height="100"></a>
   <br>
   ToDo95
   <br>
