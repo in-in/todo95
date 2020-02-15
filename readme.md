@@ -10,7 +10,9 @@
 
 ## Target Browsers
 
-![Target Browsers](https://user-images.githubusercontent.com/8797432/74587063-f5106000-4ffe-11ea-9c04-b63d11f57552.png "Target Browsers")
+<div align="center">
+<img src="https://user-images.githubusercontent.com/8797432/74587243-3d308200-5001-11ea-9494-85df4f8f612c.png" alt="Target Browsers" title="Target Browsers">
+</div>
 
 <p align="right">powered by <a href="https://browserl.ist/" title="Browserslist">Browserslist</a></p>
 
