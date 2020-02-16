@@ -23,6 +23,7 @@ class Search extends Component {
 		return (
 			<Fieldset>
 				<TextField
+					aria-label="Search"
 					onChange={this.onTermChange}
 					placeholder="Search"
 					required

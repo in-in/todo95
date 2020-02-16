@@ -37,10 +37,11 @@ class AddForm extends Component {
 			<form onSubmit={this.onSubmit}>
 				<Fieldset>
 					<TextField
+						aria-label="Add task"
 						onChange={this.onLabelChange}
 						placeholder="Add task"
-						value={label}
 						required
+						value={label}
 					/>
 					<StyledButton fullWidth type="submit">
 						<span role="img" aria-label="Plus">➕</span>
