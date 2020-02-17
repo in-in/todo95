@@ -18,6 +18,18 @@ const ResetStyles = createGlobalStyle`
 	body {
 		background-color: teal
 	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		padding: 0;
+		border: 0;
+		white-space: nowrap;
+		pointer-events: none;
+}
 `;
 
 const StyledWindow = styled(Window)`

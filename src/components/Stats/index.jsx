@@ -10,7 +10,7 @@ const StyledTableDataCell = styled(TableDataCell)`
 `;
 
 const Stats = ({ todo, done }) => (
-	<Fieldset>
+	<Fieldset label={<span className="visually-hidden">Statistics</span>}>
 		<Table>
 			<TableHead>
 				<TableRow>

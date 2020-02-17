@@ -35,7 +35,7 @@ class AddForm extends Component {
 
 		return (
 			<form onSubmit={this.onSubmit}>
-				<Fieldset>
+				<Fieldset label={<span className="visually-hidden">Add task</span>}>
 					<TextField
 						aria-label="Add task"
 						onChange={this.onLabelChange}

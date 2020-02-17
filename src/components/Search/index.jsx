@@ -21,7 +21,7 @@ class Search extends Component {
 		const { term } = this.state;
 
 		return (
-			<Fieldset>
+			<Fieldset label={<span className="visually-hidden">Search</span>}>
 				<TextField
 					aria-label="Search"
 					onChange={this.onTermChange}
