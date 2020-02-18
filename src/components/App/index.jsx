@@ -29,7 +29,16 @@ const ResetStyles = createGlobalStyle`
 		border: 0;
 		white-space: nowrap;
 		pointer-events: none;
-}
+	}
+
+	*:focus,
+	*:focus + div
+	 {
+		outline: none !important;
+		box-shadow:
+			0 0 0 0.125rem rgba(0, 0, 128, 0.8),
+			0 0 0 0.375rem rgb(16, 52, 166, 0.6) !important;
+	}
 `;
 
 const StyledWindow = styled(Window)`
