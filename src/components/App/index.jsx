@@ -95,11 +95,10 @@ class App extends Component {
 		super();
 		this.state = {
 			'data': [
-				App.createItem('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime necessitatibus corporis labore dolorem consequatur eum libero tempora est? Amet odit officiis minus, provident ad aliquam minima eveniet tenetur aut a.'),
-				App.createItem('item2'),
-				App.createItem('item3'),
-				App.createItem('item4'),
-				App.createItem('Moo'),
+				App.createItem('Design a prototype'),
+				App.createItem('Client meeting'),
+				App.createItem('Pack a suitcase'),
+				App.createItem('Bring an umbrella'),
 			],
 			'term': '',
 			'filter': 'all',
