@@ -20,6 +20,7 @@
 
 - Configuration: [Create React App](https://github.com/facebook/create-react-app)
 - Windows95 UI: [React95](https://github.com/arturbien/React95)
+- Based on [Udemy course](https://www.udemy.com/course/pro-react-redux/)
 ---
 
 > <sub>Built with ❤︎ by <a href="https://github.com/in-in">in-in</a></sub>
