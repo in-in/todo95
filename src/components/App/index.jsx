@@ -1,45 +1,14 @@
 import React, { Component } from 'react';
-import styled, {
-	createGlobalStyle,
-	ThemeProvider,
-	StyleSheetManager,
-} from 'styled-components';
-import { reset, themes, Window } from 'react95';
+import styled, { ThemeProvider, StyleSheetManager } from 'styled-components';
+import { themes, Window } from 'react95';
 import nanoid from 'nanoid';
+import ResetStyles from '../ResetStyles';
 import Header from '../Header';
 import Filter from '../Filter';
 import Stats from '../Stats';
 import AddForm from '../AddForm';
 import List from '../List';
 import Search from '../Search';
-
-const ResetStyles = createGlobalStyle`
-	${reset}
-	body {
-		background-color: teal
-	}
-
-	.visually-hidden {
-		position: absolute;
-		width: 1px;
-		height: 1px;
-		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
-		padding: 0;
-		border: 0;
-		white-space: nowrap;
-		pointer-events: none;
-	}
-
-	*:focus,
-	*:focus + div
-	 {
-		outline: none !important;
-		box-shadow:
-			0 0 0 0.125rem rgba(0, 0, 128, 0.8),
-			0 0 0 0.375rem rgb(16, 52, 166, 0.6) !important;
-	}
-`;
 
 const StyledWindow = styled(Window)`
 	display: block;
