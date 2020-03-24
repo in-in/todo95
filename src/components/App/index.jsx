@@ -60,15 +60,17 @@ class App extends Component {
 		}
 	}
 
+	items = [
+		'Design a prototype',
+		'Client meeting',
+		'Pack a suitcase',
+		'Bring an umbrella',
+	].map((label) => App.createItem(label))
+
 	constructor() {
 		super();
 		this.state = {
-			'data': [
-				App.createItem('Design a prototype'),
-				App.createItem('Client meeting'),
-				App.createItem('Pack a suitcase'),
-				App.createItem('Bring an umbrella'),
-			],
+			'data': this.items,
 			'term': '',
 			'filter': 'all',
 		};
